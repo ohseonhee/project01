@@ -17,6 +17,7 @@
 							id="radio2"
 							name="thema"
 							value="White"
+							checked="checked"
 						/>
 						<label for="radio2">White</label>
 					</li>
@@ -24,7 +25,7 @@
 			</div>
 		</div>
 		<div class="wrap">
-			<div class="movieArea clearfix">
+			<div class="movieArea clearfix active">
 				<div class="clearfix">
 					<div class="mode">
 						<input
@@ -233,159 +234,145 @@ export default {
 	.movieArea {
 		padding-top: 30px;
 		position: relative;
-	}
-	.mode {
-		position: relative;
-		float: left;
-		margin-left: 5px;
-		input[type='checkbox'] {
-			opacity: 0;
-			margin: 0;
-			width: 30px;
-			height: 15px;
-			position: absolute;
-			left: 0;
-			top: 0;
-			z-index: 1;
-		}
-		input[type='checkbox']:checked + label:after {
-			left: 15px;
-		}
-		input[type='checkbox']:checked + label:before {
-			background: #a8dbf8;
-		}
-		label {
-			font-size: 12px;
+		.mode {
 			position: relative;
-			&:before,
-			&:after {
-				content: '';
+			float: left;
+			margin-left: 5px;
+			input[type='checkbox'] {
+				opacity: 0;
+				margin: 0;
+				width: 30px;
 				height: 15px;
-			}
-			&:after {
-				width: 15px;
-				border-radius: 100%;
 				position: absolute;
 				left: 0;
 				top: 0;
-				background: #33a0de;
-				transition: all 0.5s;
+				z-index: 1;
 			}
-			&:before {
-				display: inline-block;
-				width: 30px;
-				margin-right: 10px;
-				vertical-align: sub;
-				background: #686868;
-				box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-				border-radius: 21px;
-				transition: all 0.8s;
+			input[type='checkbox']:checked + label:after {
+				left: 15px;
 			}
-		}
-	}
-	.genre {
-		float: right;
-		margin-right: 5px;
-		ul {
-			li {
-				display: inline-block;
-				position: relative;
+			input[type='checkbox']:checked + label:before {
+				background: #a8dbf8;
+			}
+			label {
 				font-size: 12px;
-				font-weight: 600;
-				margin-left: 20px;
-				cursor: pointer;
-				&.active {
-					color: #33a0de;
+				position: relative;
+				&:before,
+				&:after {
+					content: '';
+					height: 15px;
 				}
-				&:first-child {
-					margin-left: 0;
-					&:before {
-						display: none;
-					}
+				&:after {
+					width: 15px;
+					border-radius: 100%;
+					position: absolute;
+					left: 0;
+					top: 0;
+					background: #33a0de;
+					transition: all 0.5s;
 				}
 				&:before {
-					content: '';
-					width: 1px;
-					height: 10px;
-					position: absolute;
-					left: -10px;
-					top: 50%;
-					margin-top: -5px;
+					display: inline-block;
+					width: 30px;
+					margin-right: 10px;
+					vertical-align: sub;
+					background: #686868;
+					box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+					border-radius: 21px;
+					transition: all 0.8s;
 				}
 			}
 		}
-	}
-	#movieInfoLayer {
-		display: none;
-		position: absolute;
-		top: 50px;
-		left: 0;
-		background: #fff;
-		border: solid 1px #e5e5e5;
-		padding: 13px 14px;
-		text-align: left;
-		width: 342px;
-		z-index: 2;
-		h2 {
-			margin: 0;
-			color: 000;
-			font-size: 18px;
-			span {
-				height: 14px;
-				width: 2px;
-				background: #000;
-				margin: 0 10px;
-				display: inline-block;
+		.genre {
+			float: right;
+			margin-right: 5px;
+			ul {
+				li {
+					display: inline-block;
+					position: relative;
+					font-size: 12px;
+					font-weight: 600;
+					margin-left: 20px;
+					cursor: pointer;
+					&.active {
+						color: #33a0de;
+					}
+					&:first-child {
+						margin-left: 0;
+						&:before {
+							display: none;
+						}
+					}
+					&:before {
+						content: '';
+						width: 1px;
+						height: 10px;
+						position: absolute;
+						left: -10px;
+						top: 50%;
+						margin-top: -5px;
+					}
+				}
 			}
 		}
-		p {
-			min-height: 312px;
-			color: #575757;
-			font-size: 14px;
-			line-height: 17px;
+		&.active {
+			#viewModeWrap {
+				display: block;
+			}
+			#movieList {
+				float: left;
+				width: 44%;
+				li {
+					cursor: pointer;
+					z-index: 1;
+					width: 34%;
+					margin-left: -115px;
+					&:before {
+						display: block;
+					}
+					&:first-child {
+						margin-left: 0;
+					}
+					&:last-child {
+						display: none;
+					}
+					img {
+						width: 229.78px;
+					}
+				}
+			}
 		}
-		.router-link-active {
-			background: #3b87be;
-			color: #fff;
-			text-align: center;
-			display: block;
-			text-decoration: none;
-			font-weight: 700;
-			height: 44px;
-			line-height: 44px;
-		}
-	}
-	#viewModeWrap {
-		display: none;
-		margin-top: 8px;
-		margin-left: 20px;
-		float: right;
-		text-align: right;
-		position: relative;
-		width: 54.5%;
-		img {
-			width: 100%;
-		}
-		h1 {
-			color: #fff;
-			font-size: 18px;
-		}
-		.textWrap {
+		#movieInfoLayer {
+			display: none;
 			position: absolute;
-			top: 10px;
-			right: 28px;
-			width: 300px;
-			font-weight: 500;
-			font-size: 14px;
-			line-height: 17px;
-			text-align: right;
-			color: rgba(255, 255, 255, 0.67);
-			text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			top: 50px;
+			left: 0;
+			background: #fff;
+			border: solid 1px #e5e5e5;
+			padding: 13px 14px;
+			text-align: left;
+			width: 342px;
+			z-index: 2;
+			h2 {
+				margin: 0;
+				color: 000;
+				font-size: 18px;
+				span {
+					height: 14px;
+					width: 2px;
+					background: #000;
+					margin: 0 10px;
+					display: inline-block;
+				}
+			}
 			p {
-				height: 205px;
+				min-height: 312px;
+				color: #575757;
+				font-size: 14px;
+				line-height: 17px;
 			}
 			.router-link-active {
-				background: rgba(54, 135, 190, 0.8);
+				background: #3b87be;
 				color: #fff;
 				text-align: center;
 				display: block;
@@ -395,63 +382,84 @@ export default {
 				line-height: 44px;
 			}
 		}
-	}
-	#movieList {
-		&.active {
-			float: left;
-			li {
-				max-width: 105px;
-				margin-left: 0;
-				cursor: pointer;
-				width: 18.08%;
-				z-index: 1;
-				overflow: visible;
-				&:before {
-					display: block;
-				}
-				&:last-child {
-					display: none;
-				}
-				img {
-					width: 229.78px;
-				}
-			}
-			.viewModeWrap {
-				display: block;
-			}
-		}
-		margin-top: 8px;
-		li {
-			float: left;
-			margin-left: 10px;
-			width: 16.08%;
+		#viewModeWrap {
+			display: none;
+			margin-top: 8px;
+			margin-left: 20px;
+
+			float: right;
+			text-align: right;
 			position: relative;
-			border-radius: 20px;
-			overflow: hidden;
-			height: 358.52px;
-			filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-			&:before {
-				display: none;
-				position: absolute;
-				left: 5.2px;
-				top: 0;
-				width: 217px;
-				height: 339px;
-				content: '';
-				background: rgba(0, 0, 0, 0.3);
-				border-radius: 19px;
-				z-index: 1;
-			}
+			width: 54.5%;
 			img {
 				width: 100%;
-				position: relative;
-				height: 358.52px;
+				height: 370.5px;
 			}
-			&:first-child {
-				margin-left: 0;
+			h1 {
+				color: #fff;
+				font-size: 18px;
+			}
+			.textWrap {
+				position: absolute;
+				top: 10px;
+				right: 28px;
+				width: 300px;
+				font-weight: 500;
+				font-size: 14px;
+				line-height: 17px;
+				text-align: right;
+				color: rgba(255, 255, 255, 0.67);
+				text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+				p {
+					height: 220px;
+				}
+				.router-link-active {
+					background: rgba(54, 135, 190, 0.8);
+					color: #fff;
+					text-align: center;
+					display: block;
+					text-decoration: none;
+					font-weight: 700;
+					height: 44px;
+					line-height: 44px;
+				}
+			}
+		}
+		#movieList {
+			margin-top: 8px;
+			li {
+				float: left;
+				margin-left: 10px;
+				width: 16.08%;
+				position: relative;
+				border-radius: 20px;
+				overflow: hidden;
+				height: 358.52px;
+				filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+				&:before {
+					display: none;
+					position: absolute;
+					left: 0;
+					top: 0;
+					width: 217px;
+					height: 358.52px;
+					content: '';
+					background: rgba(0, 0, 0, 0.3);
+					border-radius: 19px;
+					z-index: 1;
+				}
+				img {
+					width: 100%;
+					position: relative;
+					height: 358.52px;
+				}
+				&:first-child {
+					margin-left: 0;
+				}
 			}
 		}
 	}
+
 	.freeMoveArea {
 		margin-top: 47px;
 		.bigPoster {

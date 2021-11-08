@@ -1,5 +1,8 @@
 <template>
-	<div class="section white">
+	<div
+		class="section"
+		:class="{ white: isThema == false, dark: isThema == true }"
+	>
 		<div class="navBar">
 			<div class="clearfix">
 				<h1 class="title">Movie Reservation</h1>
@@ -10,6 +13,7 @@
 							id="radio1"
 							name="thema"
 							value="Dark"
+							@click="this.isThema = true"
 						/>
 						<label for="radio1">Dark</label>
 						<input
@@ -18,6 +22,7 @@
 							name="thema"
 							value="White"
 							checked="checked"
+							@click="this.isThema = false"
 						/>
 						<label for="radio2">White</label>
 					</li>
@@ -25,16 +30,19 @@
 			</div>
 		</div>
 		<div class="wrap">
-			<div class="movieArea clearfix active">
+			<div
+				class="movieArea clearfix"
+				:class="{ active: isViewmode == false }"
+			>
 				<div class="clearfix">
 					<div class="mode">
-						<input
-							type="checkbox"
-							id="view"
-							name="mode"
-							data-mode="0"
-						/>
-						<label for="view">View</label>
+						<button
+							type="button"
+							:class="{ active: !isViewmode }"
+							@click="this.isViewmode = !this.isViewmode"
+						>
+							<span></span>view
+						</button>
 					</div>
 					<div class="genre">
 						<ul>
@@ -75,11 +83,6 @@
 						<router-link to="">RESERVATION</router-link>
 					</div>
 				</div>
-				<div id="movieInfoLayer">
-					<h2>INTERSTELLA<span></span>인터스텔라</h2>
-					<p>인터스텔라 내용</p>
-					<router-link to="">RESERVATION</router-link>
-				</div>
 			</div>
 			<div class="freeMoveArea clearfix">
 				<div class="bigPoster">
@@ -102,14 +105,35 @@
 			</div>
 		</div>
 	</div>
+	<MovieinfoLayer
+		v-for="movieinfoArrays in movieinfoArray"
+		:key="movieinfoArrays"
+		:engName="movieinfoArrays.engName"
+		:koName="movieinfoArrays.koName"
+		:infoObject="movieinfoArrays.infoObject"
+	></MovieinfoLayer>
 </template>
 <script>
+import MovieinfoLayer from '@/components/movieInfoLayer.vue';
+
 export default {
 	name: 'Intro',
-	components: {},
+	components: {
+		MovieinfoLayer,
+	},
 
 	data: function () {
-		return {};
+		return {
+			isViewmode: false,
+			isThema: true,
+			movieinfoArray: [
+				{
+					engName: 'interstella',
+					koName: '인터스텔라',
+					infoObject: '영화 인터스텔라 내용입니다.',
+				},
+			],
+		};
 	},
 
 	methods: {},
@@ -139,7 +163,7 @@ export default {
 			}
 		}
 		.mode {
-			label {
+			button {
 				color: #fff;
 			}
 		}
@@ -238,31 +262,35 @@ export default {
 			position: relative;
 			float: left;
 			margin-left: 5px;
-			input[type='checkbox'] {
-				opacity: 0;
-				margin: 0;
-				width: 30px;
-				height: 15px;
-				position: absolute;
-				left: 0;
-				top: 0;
-				z-index: 1;
+			button {
+				border: none;
+				background: none;
 			}
-			input[type='checkbox']:checked + label:after {
-				left: 15px;
+			button {
+				&.active {
+					span {
+						background: #a8dbf8;
+						&:after {
+							left: 15px;
+						}
+					}
+				}
 			}
-			input[type='checkbox']:checked + label:before {
-				background: #a8dbf8;
-			}
-			label {
+			span {
 				font-size: 12px;
 				position: relative;
-				&:before,
+				display: inline-block;
+				width: 30px;
+				margin-right: 10px;
+				vertical-align: sub;
+				background: #686868;
+				box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+				border-radius: 21px;
+				transition: all 0.8s;
+				height: 15px;
 				&:after {
 					content: '';
 					height: 15px;
-				}
-				&:after {
 					width: 15px;
 					border-radius: 100%;
 					position: absolute;
@@ -270,16 +298,6 @@ export default {
 					top: 0;
 					background: #33a0de;
 					transition: all 0.5s;
-				}
-				&:before {
-					display: inline-block;
-					width: 30px;
-					margin-right: 10px;
-					vertical-align: sub;
-					background: #686868;
-					box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-					border-radius: 21px;
-					transition: all 0.8s;
 				}
 			}
 		}
@@ -326,7 +344,7 @@ export default {
 				li {
 					cursor: pointer;
 					z-index: 1;
-					width: 34%;
+					width: 34.5%;
 					margin-left: -115px;
 					&:before {
 						display: block;
@@ -343,46 +361,7 @@ export default {
 				}
 			}
 		}
-		#movieInfoLayer {
-			display: none;
-			position: absolute;
-			top: 50px;
-			left: 0;
-			background: #fff;
-			border: solid 1px #e5e5e5;
-			padding: 13px 14px;
-			text-align: left;
-			width: 342px;
-			z-index: 2;
-			h2 {
-				margin: 0;
-				color: 000;
-				font-size: 18px;
-				span {
-					height: 14px;
-					width: 2px;
-					background: #000;
-					margin: 0 10px;
-					display: inline-block;
-				}
-			}
-			p {
-				min-height: 312px;
-				color: #575757;
-				font-size: 14px;
-				line-height: 17px;
-			}
-			.router-link-active {
-				background: #3b87be;
-				color: #fff;
-				text-align: center;
-				display: block;
-				text-decoration: none;
-				font-weight: 700;
-				height: 44px;
-				line-height: 44px;
-			}
-		}
+
 		#viewModeWrap {
 			width: 0;
 			height: 0;

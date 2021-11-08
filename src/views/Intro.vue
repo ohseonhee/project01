@@ -4,7 +4,7 @@
 			<div class="clearfix">
 				<h1 class="title">Movie Reservation</h1>
 				<ul class="themaArea">
-					<li id="themaWrap" data-thema="dark">
+					<li id="themaWrap">
 						<input
 							type="radio"
 							id="radio1"
@@ -38,9 +38,9 @@
 					</div>
 					<div class="genre">
 						<ul>
-							<li class="active">멜로</li>
-							<li>공포</li>
-							<li>코미디</li>
+							<li class="active" data-type="0">멜로</li>
+							<li data-type="1">공포</li>
+							<li data-type="2">코미디</li>
 						</ul>
 					</div>
 				</div>

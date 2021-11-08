@@ -1,10 +1,10 @@
 <template>
-	<div class="section dark">
+	<div class="section white">
 		<div class="navBar">
 			<div class="wrap clearfix">
 				<h1 class="title">Movie Reservation</h1>
 				<ul class="themaArea">
-					<li id="themaWrap">
+					<li id="themaWrap" data-thema="dark">
 						<input
 							type="radio"
 							id="radio1"
@@ -24,27 +24,27 @@
 			</div>
 		</div>
 		<div class="wrap">
-			<div class="movieArea">
+			<div class="movieArea clearfix">
 				<div class="clearfix">
 					<div class="mode">
 						<input
 							type="checkbox"
 							id="view"
 							name="mode"
-							value="viewoff"
+							data-mode="0"
 						/>
 						<label for="view">View</label>
 					</div>
 					<div class="genre">
 						<ul>
-							<li>멜로</li>
+							<li class="active">멜로</li>
 							<li>공포</li>
 							<li>코미디</li>
 						</ul>
 					</div>
 				</div>
 
-				<ul id="movieList">
+				<ul id="movieList" class="clearfix active">
 					<li>
 						<img src="../assets/poster1.png" />
 					</li>
@@ -64,6 +64,40 @@
 						<img src="../assets/poster6.png" />
 					</li>
 				</ul>
+				<div id="viewModeWrap">
+					<div class="imgWrap">
+						<img src="../assets/moveSelect1.png" />
+					</div>
+					<div class="textWrap">
+						<h2>movie title</h2>
+						<p>영화정보</p>
+						<router-link to="">RESERVATION</router-link>
+					</div>
+				</div>
+				<div id="movieInfoLayer">
+					<h2>INTERSTELLA<span></span>인터스텔라</h2>
+					<p>인터스텔라 내용</p>
+					<router-link to="">RESERVATION</router-link>
+				</div>
+			</div>
+			<div class="freeMoveArea clearfix">
+				<div class="bigPoster">
+					<img src="../assets/freePoster1.jpeg" />
+				</div>
+				<div class="freeMove">
+					<dl>
+						<dt>2021년 12월 연말 무료시사회</dt>
+						<dd>
+							<img src="../assets/freePoster2.jpeg" />
+						</dd>
+					</dl>
+					<dl>
+						<dt>올해 가장 보고싶은 영화 선정 무료 예약</dt>
+						<dd>
+							<img src="../assets/freePoster3.png" />
+						</dd>
+					</dl>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -82,21 +116,99 @@ export default {
 </script>
 <style lang="scss">
 .section {
+	padding-bottom: 30px;
 	.wrap {
 		max-width: 1440px;
 		margin: 0 auto;
 	}
 	&.dark {
 		background: #383838;
+		.navBar {
+			h1 {
+				color: #fff;
+			}
+			.themaArea {
+				#themaWrap {
+					label {
+						color: #fff;
+					}
+				}
+			}
+		}
+		.mode {
+			label {
+				color: #fff;
+			}
+		}
+		.genre {
+			ul {
+				li {
+					color: #fff;
+					&.active {
+						color: #33a0de;
+					}
+					&:before {
+						background: #fff;
+					}
+				}
+			}
+		}
+		.freeMoveArea {
+			.freeMove {
+				dl {
+					dt {
+						color: #fff;
+					}
+				}
+			}
+		}
 	}
 	&.white {
 		background: #fff;
+		.navBar {
+			h1 {
+				color: #fff;
+			}
+			.themaArea {
+				#themaWrap {
+					label {
+						color: #fff;
+					}
+				}
+			}
+		}
+		.mode {
+			label {
+				color: #222;
+			}
+		}
+		.genre {
+			ul {
+				li {
+					color: #222;
+					&.active {
+						color: #33a0de;
+					}
+					&:before {
+						background: #222;
+					}
+				}
+			}
+		}
+		.freeMoveArea {
+			.freeMove {
+				dl {
+					dt {
+						color: #222;
+					}
+				}
+			}
+		}
 	}
 	.navBar {
 		background: #1a1a1a;
 		padding: 10px 20px;
 		h1 {
-			color: #fff;
 			font-family: Roboto;
 			font-style: normal;
 			font-weight: normal;
@@ -111,13 +223,13 @@ export default {
 			#themaWrap {
 				label {
 					font-size: 14px;
-					color: #fff;
 				}
 			}
 		}
 	}
 	.movieArea {
 		padding-top: 30px;
+		position: relative;
 	}
 	.mode {
 		position: relative;
@@ -140,7 +252,6 @@ export default {
 		}
 		label {
 			font-size: 12px;
-			color: #fff;
 			position: relative;
 			&:before,
 			&:after {
@@ -173,11 +284,13 @@ export default {
 			li {
 				display: inline-block;
 				position: relative;
-				color: #fff;
 				font-size: 12px;
 				font-weight: 600;
 				margin-left: 20px;
 				cursor: pointer;
+				&.active {
+					color: #33a0de;
+				}
 				&:first-child {
 					margin-left: 0;
 					&:before {
@@ -189,7 +302,6 @@ export default {
 					width: 1px;
 					height: 10px;
 					position: absolute;
-					background: #fff;
 					left: -10px;
 					top: 50%;
 					margin-top: -5px;
@@ -197,7 +309,150 @@ export default {
 			}
 		}
 	}
+	#movieInfoLayer {
+		display: block;
+		position: absolute;
+		top: 50px;
+		left: 0;
+		background: #fff;
+		border: solid 1px #e5e5e5;
+		padding: 13px 14px;
+		text-align: left;
+		width: 342px;
+		z-index: 2;
+		h2 {
+			margin: 0;
+			color: 000;
+			font-size: 18px;
+			span {
+				height: 14px;
+				width: 2px;
+				background: #000;
+				margin: 0 10px;
+				display: inline-block;
+			}
+		}
+		p {
+			min-height: 312px;
+			color: #575757;
+			font-size: 14px;
+			line-height: 17px;
+		}
+		.router-link-active {
+			background: #3b87be;
+			color: #fff;
+			text-align: center;
+			display: block;
+			text-decoration: none;
+			font-weight: 700;
+			height: 44px;
+			line-height: 44px;
+		}
+	}
+	#viewModeWrap {
+		margin-top: 8px;
+		margin-left: 20px;
+		display: block;
+		float: right;
+		text-align: right;
+		position: relative;
+		width: 54.5%;
+		img {
+			width: 100%;
+		}
+		h1 {
+			color: #fff;
+			font-size: 18px;
+		}
+		.textWrap {
+			position: absolute;
+			top: 10px;
+			right: 28px;
+			width: 300px;
+			font-weight: 500;
+			font-size: 14px;
+			line-height: 17px;
+			text-align: right;
+			color: rgba(255, 255, 255, 0.67);
+			text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+			p {
+				height: 205px;
+			}
+			.router-link-active {
+				background: rgba(54, 135, 190, 0.8);
+				color: #fff;
+				text-align: center;
+				display: block;
+				text-decoration: none;
+				font-weight: 700;
+				height: 44px;
+				line-height: 44px;
+			}
+		}
+	}
 	#movieList {
+		&.active {
+			float: left;
+			li {
+				max-width: 115px;
+				margin-left: 0;
+				cursor: pointer;
+				&:last-child {
+					display: none;
+				}
+				img {
+					width: 229.78px;
+				}
+			}
+			.viewModeWrap {
+				display: block;
+			}
+		}
+		margin-top: 8px;
+		li {
+			float: left;
+			margin-left: 10px;
+			width: 16.08%;
+			img {
+				width: 100%;
+			}
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+	}
+	.freeMoveArea {
+		margin-top: 47px;
+		.bigPoster {
+			float: left;
+			margin-right: 20px;
+			width: 66%;
+			border-radius: 15px;
+			overflow: hidden;
+			img {
+				width: 100%;
+			}
+		}
+		.freeMove {
+			float: left;
+			width: 32.5%;
+			img {
+				width: 100%;
+			}
+			dl {
+				margin: 0;
+				&:first-child {
+					margin-bottom: 89px;
+				}
+				dt {
+					text-align: left;
+					margin-bottom: 10px;
+				}
+				dd {
+					margin: 0;
+				}
+			}
+		}
 	}
 }
 

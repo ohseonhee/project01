@@ -35,6 +35,7 @@ module.exports = {
         arrowParens: 'avoid',
       },
     ],
+    'no-unused-vars': 0,
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
     "vue/no-multiple-template-root": 0

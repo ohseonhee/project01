@@ -118,7 +118,7 @@ export default {
 <style lang="scss">
 .section {
 	padding-bottom: 30px;
-
+	transition: color 0.5s;
 	.wrap {
 		width: 1440px;
 		margin: 0 auto;

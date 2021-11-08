@@ -44,24 +44,24 @@
 					</div>
 				</div>
 
-				<ul id="movieList" class="clearfix active">
+				<ul id="movieList" class="clearfix">
 					<li>
-						<img src="../assets/poster1.png" />
+						<img src="../assets/mov_23.webp" />
 					</li>
 					<li>
-						<img src="../assets/poster2.png" />
+						<img src="../assets/mov_17.webp" />
 					</li>
 					<li>
-						<img src="../assets/poster3.png" />
+						<img src="../assets/mov_19.webp" />
 					</li>
 					<li>
-						<img src="../assets/poster4.png" />
+						<img src="../assets/mov_20.webp" />
 					</li>
 					<li>
-						<img src="../assets/poster5.png" />
+						<img src="../assets/mov_22.webp" />
 					</li>
 					<li>
-						<img src="../assets/poster6.png" />
+						<img src="../assets/mov_21.webp" />
 					</li>
 				</ul>
 				<div id="viewModeWrap">
@@ -356,9 +356,9 @@ export default {
 		}
 	}
 	#viewModeWrap {
+		display: none;
 		margin-top: 8px;
 		margin-left: 20px;
-		display: block;
 		float: right;
 		text-align: right;
 		position: relative;
@@ -405,6 +405,10 @@ export default {
 				cursor: pointer;
 				width: 18.08%;
 				z-index: 1;
+				overflow: visible;
+				&:before {
+					display: block;
+				}
 				&:last-child {
 					display: none;
 				}
@@ -422,7 +426,12 @@ export default {
 			margin-left: 10px;
 			width: 16.08%;
 			position: relative;
+			border-radius: 20px;
+			overflow: hidden;
+			height: 358.52px;
+			filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 			&:before {
+				display: none;
 				position: absolute;
 				left: 5.2px;
 				top: 0;
@@ -436,6 +445,7 @@ export default {
 			img {
 				width: 100%;
 				position: relative;
+				height: 358.52px;
 			}
 			&:first-child {
 				margin-left: 0;

@@ -237,6 +237,7 @@ export default {
 	.mode {
 		position: relative;
 		float: left;
+		margin-left: 5px;
 		input[type='checkbox'] {
 			opacity: 0;
 			margin: 0;
@@ -284,6 +285,7 @@ export default {
 	}
 	.genre {
 		float: right;
+		margin-right: 5px;
 		ul {
 			li {
 				display: inline-block;

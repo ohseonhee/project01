@@ -471,6 +471,7 @@ export default {
 			width: 66%;
 			border-radius: 15px;
 			overflow: hidden;
+			height: 531.61px;
 			img {
 				width: 100%;
 			}

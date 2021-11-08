@@ -1,7 +1,7 @@
 <template>
 	<div class="section white">
 		<div class="navBar">
-			<div class="wrap clearfix">
+			<div class="clearfix">
 				<h1 class="title">Movie Reservation</h1>
 				<ul class="themaArea">
 					<li id="themaWrap" data-thema="dark">
@@ -117,9 +117,11 @@ export default {
 <style lang="scss">
 .section {
 	padding-bottom: 30px;
+
 	.wrap {
-		max-width: 1440px;
+		width: 1440px;
 		margin: 0 auto;
+		overflow: scroll;
 	}
 	&.dark {
 		background: #383838;
@@ -208,6 +210,7 @@ export default {
 	.navBar {
 		background: #1a1a1a;
 		padding: 10px 20px;
+		min-width: 1440px;
 		h1 {
 			font-family: Roboto;
 			font-style: normal;
@@ -257,7 +260,6 @@ export default {
 			&:after {
 				content: '';
 				height: 15px;
-				transition: all 0.5s;
 			}
 			&:after {
 				width: 15px;
@@ -266,6 +268,7 @@ export default {
 				left: 0;
 				top: 0;
 				background: #33a0de;
+				transition: all 0.5s;
 			}
 			&:before {
 				display: inline-block;
@@ -275,6 +278,7 @@ export default {
 				background: #686868;
 				box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
 				border-radius: 21px;
+				transition: all 0.8s;
 			}
 		}
 	}
@@ -310,7 +314,7 @@ export default {
 		}
 	}
 	#movieInfoLayer {
-		display: block;
+		display: none;
 		position: absolute;
 		top: 50px;
 		left: 0;
@@ -394,9 +398,11 @@ export default {
 		&.active {
 			float: left;
 			li {
-				max-width: 115px;
+				max-width: 105px;
 				margin-left: 0;
 				cursor: pointer;
+				width: 18.08%;
+				z-index: 1;
 				&:last-child {
 					display: none;
 				}
@@ -413,8 +419,21 @@ export default {
 			float: left;
 			margin-left: 10px;
 			width: 16.08%;
+			position: relative;
+			&:before {
+				position: absolute;
+				left: 5.2px;
+				top: 0;
+				width: 217px;
+				height: 339px;
+				content: '';
+				background: rgba(0, 0, 0, 0.3);
+				border-radius: 19px;
+				z-index: 1;
+			}
 			img {
 				width: 100%;
+				position: relative;
 			}
 			&:first-child {
 				margin-left: 0;

@@ -317,7 +317,8 @@ export default {
 		}
 		&.active {
 			#viewModeWrap {
-				display: block;
+				width: 54.5%;
+				height: auto;
 			}
 			#movieList {
 				float: left;
@@ -383,14 +384,15 @@ export default {
 			}
 		}
 		#viewModeWrap {
-			display: none;
+			width: 0;
+			height: 0;
 			margin-top: 8px;
 			margin-left: 20px;
-
+			transition: all 0.5s;
 			float: right;
 			text-align: right;
 			position: relative;
-			width: 54.5%;
+			overflow: hidden;
 			img {
 				width: 100%;
 				height: 370.5px;
@@ -436,6 +438,7 @@ export default {
 				overflow: hidden;
 				height: 358.52px;
 				filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+				transition: all 0.5s;
 				&:before {
 					display: none;
 					position: absolute;

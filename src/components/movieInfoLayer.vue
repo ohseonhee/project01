@@ -2,6 +2,7 @@
 	<div id="movieInfoLayer">
 		<h2>{{ engName }}<span></span>{{ koName }}</h2>
 		<p>{{ infoObject }}</p>
+		<button type="button">X</button>
 		<router-link to="">RESERVATION</router-link>
 	</div>
 </template>

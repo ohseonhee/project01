@@ -124,13 +124,38 @@ export default {
 
 	data: function () {
 		return {
-			isViewmode: false,
-			isThema: true,
+			isViewmode: true,
+			isThema: false,
 			movieinfoArray: [
 				{
 					engName: 'interstella',
 					koName: '인터스텔라',
 					infoObject: '영화 인터스텔라 내용입니다.',
+				},
+				{
+					engName: 'interstella2',
+					koName: '인터스텔라2',
+					infoObject: '영화 인터스텔라 내용입니다2.',
+				},
+				{
+					engName: 'interstella3',
+					koName: '인터스텔라3',
+					infoObject: '영화 인터스텔라 내용입니다3.',
+				},
+				{
+					engName: 'interstella4',
+					koName: '인터스텔라4',
+					infoObject: '영화 인터스텔라 내용입니다4.',
+				},
+				{
+					engName: 'interstella5',
+					koName: '인터스텔라5',
+					infoObject: '영화 인터스텔라 내용입니다5.',
+				},
+				{
+					engName: 'interstella6',
+					koName: '인터스텔라6',
+					infoObject: '영화 인터스텔라 내용입니다6.',
 				},
 			],
 		};
@@ -146,7 +171,6 @@ export default {
 	.wrap {
 		width: 1440px;
 		margin: 0 auto;
-		overflow: scroll;
 	}
 	&.dark {
 		background: #383838;
@@ -342,7 +366,6 @@ export default {
 				float: left;
 				width: 44%;
 				li {
-					cursor: pointer;
 					z-index: 1;
 					width: 34.5%;
 					margin-left: -115px;
@@ -409,6 +432,7 @@ export default {
 		#movieList {
 			margin-top: 8px;
 			li {
+				cursor: pointer;
 				float: left;
 				margin-left: 10px;
 				width: 16.08%;

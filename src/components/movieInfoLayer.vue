@@ -59,5 +59,15 @@ export default {
 		height: 44px;
 		line-height: 44px;
 	}
+	button {
+		border: none;
+		background: none;
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		right: 10px;
+		line-height: 20px;
+		top: 10px;
+	}
 }
 </style>

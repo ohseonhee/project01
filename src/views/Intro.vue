@@ -348,17 +348,8 @@ export default {
 	},
 	mounted: function () {
 		this._f_init_selectMovie();
-		this._f_init_isThema();
 	},
 	methods: {
-		_f_init_isThema: function () {
-			let section = document.getElementsByClassName('section')[0];
-			if (this.isThema == 'DARK') {
-				section.classList.add('dark');
-			} else if (this.isThema == 'WHITE') {
-				section.classList.add('white');
-			}
-		},
 		_f_init_selectMovie: function () {
 			const selectMovieWrap = document.getElementById('viewModeWrap');
 			let selectMovieList =
@@ -401,13 +392,7 @@ export default {
 };
 </script>
 <style lang="scss">
-.section {
-	padding-bottom: 30px;
-	transition: color 0.5s;
-	.wrap {
-		width: 1440px;
-		margin: 0 auto;
-	}
+#app {
 	&.dark {
 		background: #383838;
 		.navBar {
@@ -492,7 +477,14 @@ export default {
 			}
 		}
 	}
-
+}
+.section {
+	padding-bottom: 30px;
+	transition: color 0.5s;
+	.wrap {
+		width: 1440px;
+		margin: 0 auto;
+	}
 	.movieArea {
 		padding-top: 30px;
 		position: relative;

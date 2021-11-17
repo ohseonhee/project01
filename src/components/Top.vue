@@ -11,6 +11,7 @@
 						:value="themas.label"
 						:checked="themas.check"
 						v-model="isThema"
+						@click="_f_init_isThema()"
 					/>
 					<label :for="themas.for">{{ themas.label }}</label>
 				</li>
@@ -42,7 +43,18 @@ export default {
 		};
 	},
 	mounted: function () {},
-	methods: {},
+	methods: {
+		_f_init_isThema: function () {
+			let section = document.getElementById('app');
+			if (this.isThema == 'DARK') {
+				section.classList.remove('dark');
+				section.classList.add('white');
+			} else if (this.isThema == 'WHITE') {
+				section.classList.remove('white');
+				section.classList.add('dark');
+			}
+		},
+	},
 };
 </script>
 

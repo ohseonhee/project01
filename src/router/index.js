@@ -8,6 +8,12 @@ const routes = [
 		component: () =>
 			import(/* webpackChunkName: "about" */ '../views/Intro.vue'),
 	},
+	{
+		path: '/reservation',
+		name: 'Reservation',
+		component: () =>
+			import(/* webpackChunkName: "about" */ '../views/reservation.vue'),
+	},
 ];
 
 const router = createRouter({

@@ -394,7 +394,6 @@ export default {
 <style lang="scss">
 #app {
 	&.dark {
-		background: #383838;
 		.navBar {
 			h1 {
 				color: #fff;
@@ -436,7 +435,6 @@ export default {
 		}
 	}
 	&.white {
-		background: #fff;
 		.navBar {
 			h1 {
 				color: #fff;
@@ -718,16 +716,5 @@ ul {
 	li {
 		list-style: none;
 	}
-}
-.clearfix {
-	position: relative;
-	&:after {
-		content: '';
-		display: table;
-		clear: both;
-	}
-}
-body {
-	margin: 0;
 }
 </style>

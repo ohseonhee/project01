@@ -353,7 +353,17 @@ export default {
 			}
 		},
 		popupOpen: function (e) {
-			document.getElementById('movieInfoLayer').style.display = 'block';
+			if (
+				document
+					.getElementsByClassName('movieArea')[0]
+					.classList.contains('active')
+			) {
+				document.getElementById('movieInfoLayer').style.display =
+					'none';
+			} else {
+				document.getElementById('movieInfoLayer').style.display =
+					'block';
+			}
 		},
 		_f_init_selectMovie: function (e) {
 			document.querySelector('li.last').classList.remove('last');

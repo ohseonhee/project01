@@ -27,7 +27,6 @@ body {
 	margin: 0;
 }
 #app {
-	height: 100%;
 	&.dark {
 		background: #383838;
 	}

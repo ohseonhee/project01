@@ -33,6 +33,7 @@
 						v-for="movieLists in movieArray"
 						:key="movieLists"
 						:data-num="movieLists.dataNum"
+						@click="popupOpen()"
 					>
 						<img :src="movieLists.img" />
 					</li>
@@ -73,13 +74,7 @@
 			</div>
 		</div>
 	</div>
-	<MovieinfoLayer
-		v-for="movieinfoArrays in movieArray"
-		:key="movieinfoArrays"
-		:engName="movieinfoArrays.engName"
-		:koName="movieinfoArrays.koName"
-		:infoObject="movieinfoArrays.infoObject"
-	></MovieinfoLayer>
+	<MovieinfoLayer></MovieinfoLayer>
 </template>
 <script>
 import MovieinfoLayer from '@/components/movieInfoLayer.vue';
@@ -89,10 +84,10 @@ export default {
 	components: {
 		MovieinfoLayer,
 	},
-
 	data: function () {
 		return {
 			isViewmode: true,
+			message: 'hello',
 			generArray: [
 				{ title: '멜로', type: 0 },
 				{ title: '공포', type: 1 },
@@ -347,44 +342,39 @@ export default {
 		};
 	},
 	mounted: function () {
-		this._f_init_selectMovie();
+		const MOVIELISTWARP = document.getElementById('movieList');
+		let movieList = MOVIELISTWARP.getElementsByTagName('li');
+		movieList[5].classList.add('last');
 	},
 	methods: {
-		_f_init_selectMovie: function () {
-			const selectMovieWrap = document.getElementById('viewModeWrap');
-			let selectMovieList =
-				selectMovieWrap.getElementsByClassName('seletMovie');
-
-			const movieListWrap = document.getElementById('movieList');
-			let movieList = movieListWrap.getElementsByTagName('li');
-
-			movieList[5].classList.add('last');
-
-			for (let j = 0; j < movieList.length; j++) {
-				movieList[j].onclick = function () {
-					document.querySelector('li.last').classList.remove('last');
-					this.classList.add('last');
-
-					common();
-				};
+		engnameValue: function () {
+			for (let i = 0; i < this.movieArray.length; i++) {
+				this.movieArray[i].engName;
 			}
-			common();
+		},
+		popupOpen: function (e) {
+			document.getElementById('movieInfoLayer').style.display = 'block';
+		},
+		_f_init_selectMovie: function (e) {
+			document.querySelector('li.last').classList.remove('last');
+			e.target.classList.add('last');
+			const SELECTMOVIEWRAP = document.getElementById('viewModeWrap');
 
-			function common() {
-				let lastMovie = document.getElementsByClassName('last')[0];
-				//last data-num get
-				let lastMovieDataNum = lastMovie.getAttribute('data-num');
+			let selectMovieList =
+				SELECTMOVIEWRAP.getElementsByClassName('seletMovie');
+			let lastMovie = document.getElementsByClassName('last')[0];
+			//last data-num get
+			let lastMovieDataNum = lastMovie.getAttribute('data-num');
 
-				for (let i = 0; i < selectMovieList.length; i++) {
-					//selectmove all display none
-					selectMovieList[i].style.display = 'none';
-					//selectmovie data-num get
-					let selectMovieDataNum =
-						selectMovieList[i].getAttribute('data-num');
-					//last data-num == selectmovie data-num -> block
-					if (lastMovieDataNum == selectMovieDataNum) {
-						selectMovieList[i].style.display = 'block';
-					}
+			for (let i = 0; i < selectMovieList.length; i++) {
+				//selectmove all display none
+				selectMovieList[i].style.display = 'none';
+				//selectmovie data-num get
+				let selectMovieDataNum =
+					selectMovieList[i].getAttribute('data-num');
+				//last data-num == selectmovie data-num -> block
+				if (lastMovieDataNum == selectMovieDataNum) {
+					selectMovieList[i].style.display = 'block';
 				}
 			}
 		},

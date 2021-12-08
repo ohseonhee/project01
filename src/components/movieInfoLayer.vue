@@ -2,7 +2,7 @@
 	<div id="movieInfoLayer">
 		<h2>{{ engName }}<span></span>{{ koName }}</h2>
 		<p>{{ infoObject }}</p>
-		<button type="button">X</button>
+		<button type="button" @click="popupClose()">X</button>
 		<router-link to="">RESERVATION</router-link>
 	</div>
 </template>
@@ -14,6 +14,11 @@ export default {
 		engName: String,
 		koName: String,
 		infoObject: String,
+	},
+	methods: {
+		popupClose: function () {
+			document.getElementById('movieInfoLayer').style.display = 'none';
+		},
 	},
 };
 </script>

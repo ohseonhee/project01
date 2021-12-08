@@ -14,390 +14,47 @@
 				<div class="reservationArea">
 					<div>
 						<h2>Cinema</h2>
-						<Selectbox></Selectbox>
+						<select>
+							<option
+								v-for="selects in selectList"
+								:key="selects"
+							>
+								{{ selects.text }}
+							</option>
+						</select>
 					</div>
 					<div>
 						<h2>Phone Number</h2>
+						{{ phone }}
 						<input
 							type="text"
 							placeholder="Please input your phone number"
+							v-model="phone"
 						/><button type="button" class="code">CODE</button><br />
 						<input type="text" placeholder="Code(ex: 1234)" />
 					</div>
 					<div>
 						<h2>Seat Position</h2>
-						<div>
-							<div class="row clearfix">
-								<div class="label">A</div>
-								<div class="seatGroup clearfix">
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-								</div>
-							</div>
-							<div class="row clearfix">
-								<div class="label">B</div>
-								<div class="seatGroup clearfix">
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-								</div>
-							</div>
-							<div class="row clearfix">
-								<div class="label">C</div>
-								<div class="seatGroup clearfix">
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-								</div>
-							</div>
-							<div class="row clearfix">
-								<div class="label">D</div>
-								<div class="seatGroup clearfix">
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-								</div>
-							</div>
-							<div class="row clearfix">
-								<div class="label">E</div>
-								<div class="seatGroup clearfix">
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-								</div>
-							</div>
-							<div class="row clearfix">
-								<div class="label">F</div>
-								<div class="seatGroup clearfix">
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-								</div>
-							</div>
-							<div class="row clearfix">
-								<div class="label">G</div>
-								<div class="seatGroup clearfix">
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-									<div>
-										<a href="javascript:;"></a>
-									</div>
-								</div>
-							</div>
-							<div class="row clearfix">
-								<div class="label"></div>
-								<div class="seatGroup clearfix">
-									<div>1</div>
-									<div>2</div>
-									<div>3</div>
-									<div>4</div>
-									<div>5</div>
-									<div>6</div>
-									<div>7</div>
-									<div>8</div>
-									<div>9</div>
-									<div>10</div>
-									<div>11</div>
-									<div>12</div>
-									<div>13</div>
-									<div>14</div>
-									<div>15</div>
-								</div>
-							</div>
-						</div>
+						<table>
+							<tr
+								v-for="seatArrays in seatAlphaArray"
+								:key="seatArrays"
+							>
+								<th>{{ seatArrays.alphabet }}</th>
+								<td
+									v-for="seatlength in seatArrays.length"
+									:key="seatlength"
+								>
+									<button type="button"></button>
+								</td>
+							</tr>
+							<tr>
+								<th></th>
+								<td v-for="index in 15" :key="index">
+									{{ index }}
+								</td>
+							</tr>
+						</table>
 					</div>
 				</div>
 			</div>
@@ -405,16 +62,32 @@
 	</div>
 </template>
 <script>
-import Selectbox from '@/components/Selectbox.vue';
+//import Selectbox from '@/components/Selectbox.vue';
 export default {
 	name: 'Reservation',
 	components: {
-		Selectbox,
+		//Selectbox,
 	},
 
 	data: function () {
 		return {
 			isViewmode: true,
+			region: '',
+			phone: '',
+			selectList: [
+				{ text: 'select cinema', value: '001' },
+				{ text: 'seoul', value: '002' },
+				{ text: 'Incheon', value: '003' },
+			],
+			seatAlphaArray: [
+				{ alphabet: 'A', length: 15 },
+				{ alphabet: 'B', length: 15 },
+				{ alphabet: 'C', length: 15 },
+				{ alphabet: 'D', length: 15 },
+				{ alphabet: 'E', length: 15 },
+				{ alphabet: 'F', length: 15 },
+				{ alphabet: 'G', length: 15 },
+			],
 		};
 	},
 	mounted: function () {},
@@ -446,11 +119,11 @@ export default {
 				background: #fff;
 			}
 		}
-		.row {
-			.label {
+		tr {
+			th {
 				color: #fff;
 			}
-			.seatGroup {
+			td {
 				color: #fff;
 			}
 		}
@@ -491,13 +164,14 @@ export default {
 	}
 	.reservationArea {
 		float: left;
-		padding-top: 50px;
+		padding-top: 70px;
 		margin-left: 28px;
 		h2 {
 			font-size: 16px;
 			font-weight: 700;
+			margin: 0 0 10px 0;
 		}
-		.selectBox {
+		select {
 			height: 45px;
 			line-height: 45px;
 			background: #000;
@@ -506,51 +180,6 @@ export default {
 			width: 280px;
 			box-sizing: border-box;
 			position: relative;
-			&.active {
-				&:before {
-					content: '^';
-					font-size: 20px;
-				}
-				.optionList {
-					height: auto;
-				}
-			}
-			&:before {
-				content: 'v';
-				position: absolute;
-				right: 20px;
-				top: 0;
-				height: 100%;
-				color: #666;
-			}
-			.label {
-				display: flex;
-				align-items: center;
-				width: inherit;
-				height: inherit;
-				border: 0 none;
-				outline: 0 none;
-				color: #666;
-				padding-left: 10px;
-				background: transparent;
-				cursor: pointer;
-			}
-			.optionList {
-				position: absolute;
-				top: 50px;
-				left: 0;
-				width: 100%;
-				font-size: 16px;
-				background: #000;
-				color: #666;
-				list-style-type: none;
-				overflow: hidden;
-				padding: 0 10px;
-				border-radius: 10px;
-				box-sizing: border-box;
-				transition: 0.3s ease-in;
-				height: 0;
-			}
 		}
 		input[type='text'] {
 			border: none;
@@ -561,7 +190,7 @@ export default {
 			box-sizing: border-box;
 			padding: 0 10px;
 			width: 280px;
-			margin-top: 10px;
+			margin-bottom: 10px;
 			&:first-child {
 				margin-top: 0;
 			}
@@ -576,35 +205,34 @@ export default {
 			width: 98px;
 			margin-left: 10px;
 			border-radius: 10px;
+			cursor: pointer;
 		}
 		> div {
 			margin-bottom: 30px;
 		}
 	}
-	.row {
+	tr {
 		margin-bottom: 5px;
-		.label {
-			float: left;
+		th {
 			width: 25px;
 			height: 25px;
 			line-height: 25px;
 		}
-		.seatGroup {
-			float: left;
+		td {
 			text-align: center;
-			div {
-				float: left;
-				width: 25px;
-				height: 25px;
-				margin-right: 5px;
-				a {
-					display: block;
-					height: 100%;
-					background: #c4c4c4;
-					border-radius: 5px;
-					&.active {
-						background: #32bec7;
-					}
+			width: 25px;
+			height: 25px;
+			margin-right: 5px;
+			button {
+				display: block;
+				height: 100%;
+				background: #c4c4c4;
+				border-radius: 5px;
+				border: none;
+				width: 100%;
+				margin: 0;
+				&.active {
+					background: #32bec7;
 				}
 			}
 		}

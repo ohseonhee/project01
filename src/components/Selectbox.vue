@@ -1,14 +1,4 @@
-<template>
-	<div class="selectBox">
-		<div class="label">Select Cinema</div>
-		<ul class="optionList">
-			<li class="optionItem">Seoul</li>
-			<li class="optionItem">Incheon</li>
-			<li class="optionItem">Gyeonggido</li>
-			<li class="optionItem">Busan</li>
-		</ul>
-	</div>
-</template>
+<template></template>
 
 <script>
 export default {
